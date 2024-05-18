@@ -17,10 +17,11 @@ jobs:
         java-version: '11'
 
     - name: Compile
-      run: javac -d out src/**/*.java
+      run: javac -d out *.java
 
     - name: Run tests
-      run: java -cp out org.junit.runner.JUnitCore <TestClassName>
+      run: java -cp out org.junit.runner.JUnitCore NumberProcessorTests
+
 
 
 
