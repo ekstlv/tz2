@@ -16,19 +16,16 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
-    - name: Install SDKMAN
-      run: curl -s "https://get.sdkman.io" | bash
-
-    - name: Load SDKMAN
-      run: source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-    - name: Install Gradle
-      run: sdk install gradle 7.2
+    - name: Set up Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: '7.2'
 
     - name: Build with Gradle
       run: ./gradlew build
 
     - name: Run tests
       run: ./gradlew test
+
 
 
