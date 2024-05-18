@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'org.jfree:jfreechart:1.5.3'
+}
+
+test {
+    useJUnit()
+}
