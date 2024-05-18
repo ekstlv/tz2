@@ -16,14 +16,12 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Compile
+      run: javac -d out src/**/*.java
 
     - name: Run tests
-      run: ./gradlew test
+      run: java -cp out org.junit.runner.JUnitCore <TestClassName>
+
 
 
 
