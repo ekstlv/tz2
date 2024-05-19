@@ -1,0 +1,24 @@
+name: Java CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt' # Укажите нужное дистрибутив JDK, например 'zulu'
+        java-version: '11'    # Укажите версию JDK, используемую в вашем проекте
+
+    - name: Build with Maven
+      run: mvn install # Команда для сборки проекта и установки зависимостей
+
+    - name: Run tests
+      run: mvn test # Команда для запуска тестов
